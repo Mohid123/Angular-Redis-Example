@@ -1,0 +1,48 @@
+<table class="table my-3">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Website</th>
+      <th scope="col">Company</th>
+      <th scope="col">Address</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (user of userData; track user.id) {
+      <tr>
+        <td>
+          {{user?.id}}
+        </td>
+        <td>
+          {{user?.name}}
+        </td>
+        <td>
+          {{user?.username}}
+        </td>
+        <td>
+          {{user?.email}}
+        </td>
+        <td>
+          {{user?.phone}}
+        </td>
+        <td>
+          {{user?.website}}
+        </td>
+        <td>
+          {{user?.company?.name}}
+        </td>
+        <td>
+          {{user?.address?.street + ', ' + user?.address?.city}}
+        </td>
+        <td>
+          <i (click)="deleteRecord(user?.id)" title="Delete" class="bi bi-trash fs-5"></i>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
